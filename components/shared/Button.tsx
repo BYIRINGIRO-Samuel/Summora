@@ -11,7 +11,7 @@ interface ButtonProps {
 }
 
 export default function Button({ children, href, className = "", variant = "primary" }: ButtonProps) {
-  const baseStyles = "rounded-full font-black text-xs tracking-[0.3em] uppercase transition-all shadow-xl active:scale-95 whitespace-nowrap px-16 py-8";
+  const baseStyles = "rounded-full font-display text-sm font-black tracking-widest uppercase transition-all duration-300 px-10 py-5 shadow-lg active:scale-95 whitespace-nowrap flex items-center justify-center hover:shadow-2xl hover:-translate-y-0.5";
   
   const variants = {
     primary: "bg-black text-white hover:bg-neutral-800",
