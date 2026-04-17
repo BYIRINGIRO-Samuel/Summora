@@ -18,7 +18,7 @@ export default function Hero() {
         
         <div className="flex items-center gap-12">
           <Link href="/login" className="text-sm font-bold text-black/60 hover:text-black">Sign in</Link>
-          <Button href="/signup" className="px-12 py-5" variant="primary">
+          <Button href="/signup" variant="primary">
             Free Trial
           </Button>
         </div>
@@ -38,31 +38,31 @@ export default function Hero() {
           Transform conversations into actionable insights effortlessly with the power of next-generation meeting intelligence.
         </p>
 
-        {/* Search Hub using shared architecture */}
-        <div className="w-full max-w-5xl relative group">
-           <div className="flex items-center bg-white border border-neutral-100 p-4 rounded-full shadow-2xl transition-all">
-              <div className="pl-10 text-neutral-300">
-                 <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        {/* SEARCH HUB (Premium Redesign) */}
+        <div className="w-full max-w-4xl">
+           <div className="flex items-center bg-white border border-neutral-200 p-2 rounded-full shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] transition-all">
+              <div className="pl-8 flex items-center text-neutral-400">
+                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                  </svg>
               </div>
               <input 
                 type="text" 
                 placeholder="Search for meetings, summaries, or insights..."
-                className="w-full bg-transparent px-10 py-8 text-2xl font-medium text-black outline-none placeholder:text-neutral-200"
+                className="w-full bg-transparent px-6 py-6 text-xl font-medium text-black outline-none placeholder:text-neutral-300"
               />
-              <Button className="px-16 py-8 mr-2">
+              <Button variant="primary">
                  Ask AI
               </Button>
            </div>
         </div>
 
-        {/* Selection Tags */}
-        <div className="flex flex-wrap justify-center gap-8 mt-20">
-          {['Transcription', 'Summarization', 'Optimization'].map((tag) => (
-             <span key={tag} className="px-14 py-6 bg-neutral-100 border border-neutral-200 rounded-full text-[11px] font-black tracking-widest text-neutral-500 uppercase shadow-sm">
+        {/* SELECTION TAGS (Refined) */}
+        <div className="flex flex-wrap justify-center gap-5 mt-16">
+          {['Transcription', 'AI Summaries', 'Action Items'].map((tag) => (
+             <button key={tag} className="px-10 py-4 bg-neutral-50 border border-neutral-100 rounded-full text-xs font-bold text-neutral-500 hover:bg-black hover:text-white hover:border-black transition-all transform hover:-translate-y-1">
                 {tag}
-             </span>
+             </button>
           ))}
         </div>
       </div>
