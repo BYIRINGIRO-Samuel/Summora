@@ -4,84 +4,70 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative w-full px-4 py-4 md:px-12 md:py-10 bg-[#f1f4f9]">
-      {/* Main Container */}
-      <div className="relative w-full max-w-[1440px] mx-auto bg-white rounded-[3.5rem] overflow-hidden shadow-[0_40px_100px_-20px_rgba(8,32,82,0.05)] border border-primary/5 min-h-[90vh] flex flex-col items-center">
+    <section className="bg-white flex flex-col items-center w-full min-h-screen bg-[radial-gradient(circle_at_20%_20%,#f5f7ff_0%,transparent_40%),radial-gradient(circle_at_80%_80%,#fff5f9_0%,transparent_40%)]">
+      
+      {/* Navigation - Pushed to Top (Zero top margin/padding on parent) */}
+      <header className="flex w-full max-w-7xl items-center justify-between px-10 py-10">
+        <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-tight text-black">
+          <div className="h-8 w-8 bg-black flex items-center justify-center rounded-sm">
+            <div className="h-2 w-2 bg-white" />
+          </div>
+          SCRIBEAI
+        </Link>
         
-        {/* BUBBLE SHADOWS (Innovative blurred blobs) */}
-        <div className="absolute top-[10%] -left-20 w-[40rem] h-[40rem] bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-[20%] -right-20 w-[40rem] h-[40rem] bg-purple-500/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] bg-pink-500/10 rounded-full blur-[160px] pointer-events-none" />
-
-        {/* Navigation */}
-        <nav className="w-full px-8 md:px-16 py-10 flex items-center justify-between relative z-20">
-          <Link href="/" className="text-2xl font-black tracking-tighter text-black flex items-center gap-2">
-             <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
-                <div className="w-2 h-2 bg-white rounded-full" />
-             </div>
-             ScribeAI
+        <div className="flex items-center gap-10">
+          <Link href="/login" className="text-sm font-bold text-black/60 hover:text-black">Sign in</Link>
+          {/* Note: Standardized padding for better reliability. py-78 was a non-standard class. */}
+          <Link 
+            href="/signup" 
+            className="rounded-full bg-black px-12 py-5 text-sm font-bold text-white hover:bg-neutral-800 transition-all hover:scale-[1.05]"
+          >
+            Free Trial
           </Link>
+        </div>
+      </header>
 
-          <div className="hidden lg:flex items-center gap-12">
-            <Link href="#" className="text-sm font-bold text-black/60 hover:text-black transition-colors relative group">
-              Home
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-            </Link>
-            <Link href="#" className="text-sm font-bold text-black/40 hover:text-black transition-colors">Features</Link>
-            <Link href="#" className="text-sm font-bold text-black/40 hover:text-black transition-colors">Pricing</Link>
-            <Link href="#" className="text-sm font-bold text-black/40 hover:text-black transition-colors">Enterprise</Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Link href="/login" className="px-6 py-2.5 rounded-full border border-black/10 text-sm font-bold hover:bg-black/5 transition-all">Sign in</Link>
-            <Link href="/signup" className="px-6 py-2.5 rounded-full bg-black text-white text-sm font-bold hover:bg-black/80 transition-all shadow-lg">Free Trial</Link>
-          </div>
-        </nav>
-
-        {/* Hero Content */}
-        <div className="flex-grow flex flex-col items-center justify-center text-center px-6 relative z-20 pb-16">
-          <h1 className="text-6xl md:text-[5.5rem] font-black text-black leading-[1.05] tracking-tight font-display mb-10 max-w-4xl">
-            Transcribe Meetings <br /> with AI Magic
-          </h1>
-          
-          <p className="max-w-2xl text-xl text-black/40 font-medium leading-relaxed mb-16">
-            Transform conversations into actionable insights effortlessly with the <br /> power of meeting intelligence.
-          </p>
-
-          {/* SEARCH COMPONENT (Innovative UI) */}
-          <div className="w-full max-w-3xl relative group">
-             <div className="absolute inset-0 bg-black/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-             <div className="relative flex items-center bg-white/40 backdrop-blur-3xl border border-white p-2.5 rounded-full shadow-[0_30px_70px_-10px_rgba(0,0,0,0.08)]">
-                <div className="pl-8 flex items-center text-black/30">
-                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                   </svg>
-                </div>
-                <input 
-                   type="text" 
-                   placeholder="Search for meetings, summaries, or insights"
-                   className="w-full bg-transparent border-none outline-none px-6 py-6 text-xl font-medium text-black placeholder:text-black/20"
-                />
-                <button className="bg-black text-white px-12 py-5 rounded-full font-bold text-sm tracking-[0.2em] uppercase hover:bg-primary transition-all shadow-xl whitespace-nowrap">
-                   Ask AI
-                </button>
-             </div>
-          </div>
-
-          {/* TAGS */}
-          <div className="flex flex-wrap items-center justify-center gap-5 mt-12">
-             {['AI', 'Fashion', 'Design', 'Dark'].map((tag) => (
-                <button 
-                   key={tag}
-                   className="px-10 py-4 rounded-full bg-black/[0.03] border border-black/5 font-bold text-sm text-black/60 hover:bg-black hover:text-white transition-all transform hover:scale-105"
-                >
-                   {tag}
-                </button>
-             ))}
-          </div>
+      {/* Main Content Area */}
+      <div className="flex grow flex-col items-center justify-center text-center max-w-4xl px-6">
+        <div className="mb-8 px-5 py-2 bg-neutral-50 border border-neutral-100 rounded-full text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase">
+          AI Meeting Intelligence
         </div>
 
+        <h1 className="text-5xl md:text-7xl font-black text-black leading-tight tracking-tight mb-8">
+          Transcribe Meetings <br /> with AI Magic
+        </h1>
+
+        <p className="text-lg md:text-xl text-neutral-500 font-medium mb-16 max-w-2xl leading-relaxed">
+          Transform conversations into actionable insights effortlessly with the power of next-generation meeting intelligence.
+        </p>
+
+        {/* Search Interface */}
+        <div className="w-full flex items-center bg-white border border-neutral-200 p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all">
+          <div className="pl-6 flex items-center text-neutral-300">
+             <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+             </svg>
+          </div>
+          <input 
+            type="text" 
+            placeholder="Search for meetings or insights..."
+            className="w-full bg-transparent px-6 py-5 text-[1.25rem] font-medium text-black outline-none placeholder:text-neutral-300"
+          />
+          <button className="bg-black text-white px-12 py-5 rounded-full text-sm font-bold hover:bg-neutral-800 transition-all whitespace-nowrap mr-1">
+             Ask AI
+          </button>
+        </div>
+
+        {/* System States / Tags */}
+        <div className="flex flex-wrap justify-center gap-4 mt-12">
+          {['Transcription', 'Summary', 'Actions'].map((tag) => (
+             <span key={tag} className="px-8 py-3 bg-neutral-50 border border-neutral-100 rounded-full text-xs font-bold text-neutral-400">
+                {tag}
+             </span>
+          ))}
+        </div>
       </div>
+
     </section>
   );
 }
