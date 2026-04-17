@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const features = [
   {
     title: "Real-time Transcription",
@@ -45,26 +47,32 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 bg-background border-t border-white/5">
+    <section id="features" className="section-spacing bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">Core Technology</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-white">Unlock the power of your conversations.</h3>
+        <div className="max-w-3xl mb-20">
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">How it works</h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-primary leading-tight">Everything you need to run better meetings.</h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {features.map((feature, idx) => (
             <div 
               key={idx} 
-              className="group p-8 rounded-3xl bg-surface/40 border border-white/5 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2"
+              className="group flex flex-col items-start"
             >
-              <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg`}>
+              <div className="w-16 h-16 rounded-2xl bg-background flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                 {feature.icon}
               </div>
-              <h4 className="text-xl font-bold text-white mb-4 transition-colors group-hover:text-primary">{feature.title}</h4>
-              <p className="text-text-muted leading-relaxed">
+              <h4 className="text-2xl font-bold text-primary mb-4">{feature.title}</h4>
+              <p className="text-text-muted text-lg leading-relaxed">
                 {feature.description}
               </p>
+              <Link href="#" className="mt-6 text-primary font-bold inline-flex items-center gap-2 hover:gap-3 transition-all">
+                Learn more 
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
           ))}
         </div>
